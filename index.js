@@ -4,6 +4,7 @@ import letters from './letters.js'
 
 let word = getRandomWord()
 let curWord = Array(word.length).fill('_')
+let mistakes = 0
 
 curWord[0] = word[0]
 curWord[curWord.length- 1] = word[word.length - 1]
@@ -22,7 +23,8 @@ function handleKeyPress (e) {
             }
             updateWord()
         } else {
-            // make body become red
+            mistakes++
+            mistakes >= 6 ? console.log('death') : updateBody()
         }
     }
 }
@@ -41,4 +43,11 @@ function updateWord () {
         }
     }
     document.querySelector(".word").textContent = strCurWord
+}
+
+function updateBody () {
+    let bodyParts = document.querySelectorAll('.body-part')
+    for(let i = 0; i < mistakes; i++){
+        bodyParts[i].classList.add('body-part-dead')
+    }
 }
