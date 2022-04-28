@@ -103,3 +103,10 @@ body {
     font-size: 4rem;
     text-shadow: 0 0 20px #ff2c76;
 }
+
+.my-name {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgb(102, 104, 130);
+}
