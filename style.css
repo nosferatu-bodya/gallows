@@ -59,7 +59,7 @@ body {
 }
 
 .body-part-dead {
-    fill: red;
+    fill: rgb(255, 36, 84);
 }
 
 
@@ -74,4 +74,29 @@ body {
     color: #76839C;
     text-align: center;
     padding: 0 20%;
+}
+
+.message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.message-good {
+    display: flex;
+    color: #76ff76;
+    font-size: 6rem;
+    text-shadow: 0 0 20px #76ff76;
+}
+
+.message-bad {
+    display: flex;
+    color: #ff2c76;
+    font-size: 5rem;
+    text-shadow: 0 0 20px #ff2c76;
 }

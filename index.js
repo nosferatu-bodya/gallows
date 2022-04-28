@@ -22,9 +22,16 @@ function handleKeyPress (e) {
                 }
             }
             updateWord()
+            showMessage('you got it!', 'good')
         } else {
             mistakes++
-            mistakes >= 6 ? console.log('death') : updateBody()
+            if(mistakes >= 6) {
+                updateBody()
+                console.log('death')
+            } else {
+                updateBody()
+            }
+            showMessage('wrong!', 'bad')
         }
     }
 }
@@ -50,4 +57,26 @@ function updateBody () {
     for(let i = 0; i < mistakes; i++){
         bodyParts[i].classList.add('body-part-dead')
     }
+}
+
+function showMessage(text, mood) {
+    let message = document.querySelector('.message')
+    message.querySelector('h1').textContent = text
+    if(mood === 'good') {
+        message.classList.remove('message-bad')
+        message.classList.add('message-good')
+    } else if (mood === 'bad') {
+        message.classList.remove('message-good')
+        message.classList.add('message-bad')
+    } else {
+        throw new Error('incorrect mood. Can accept only -bad or -good')
+    }
+
+    setTimeout(hideMessage, 350)
+}
+
+function hideMessage() {
+    let message = document.querySelector('.message')
+    message.querySelector('h1').textContent = ''
+    message.classList.remove('message-active')
 }
