@@ -10,36 +10,49 @@
 
 <body>
 
-    <svg id="gallow-img" width="437" height="578" viewBox="0 0 437 578" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g id="gallow">
-            <g id="wood">
-                <rect x="112.644" width="32.191" height="611.629" transform="rotate(22.4578 112.644 0)"
-                    fill="#838D9F" />
-                <rect x="76.2213" y="0.777893" width="389.773" height="43.8968"
-                    transform="rotate(22.4578 76.2213 0.777893)" fill="#838D9F" />
-                <rect x="336.112" y="143" width="11.7058" height="95.1098" fill="#838D9F" />
-                <rect x="214.759" y="73.8755" width="33.6542" height="160.955"
-                    transform="rotate(67.4578 214.759 73.8755)" fill="#838D9F" />
-            </g>
-            <g id="guy">
-                <circle class="body-part" id="head" cx="342.5" cy="237.5" r="21.5" fill="#2A3141" />
-                <rect class="body-part" id="body" x="318" y="271" width="49" height="81" rx="5" fill="#2A3141" />
-                <rect class="body-part" id="left-leg" x="318" y="358" width="21" height="112" rx="5" fill="#2A3141" />
-                <rect class="body-part" id="right-leg" x="346" y="358" width="21" height="112" rx="5" fill="#2A3141" />
-                <path class="body-part" id="right-hand"
-                    d="M374 290.646C374 286.285 379.939 284.992 381.752 288.958V288.958C381.917 289.317 382.027 289.699 382.082 290.09L394.214 377.815C394.629 380.82 392.295 383.5 389.261 383.5H379C376.239 383.5 374 381.261 374 378.5V290.646Z"
-                    fill="#2A3141" />
-                <path class="body-part" id="left-hand"
-                    d="M311 290.646C311 286.285 305.061 284.992 303.248 288.958V288.958C303.083 289.317 302.973 289.699 302.918 290.09L290.786 377.815C290.371 380.82 292.705 383.5 295.739 383.5H306C308.761 383.5 311 381.261 311 378.5V290.646Z"
-                    fill="#2A3141" />
-                <rect id="neck" x="324" y="261" width="36" height="8" rx="4" fill="#838D9F" />
-                <g id="eyes">
-                    <circle id="eye-left" cx="334" cy="238" r="6" fill="#262A38" />
-                    <circle id="eye-right" cx="352" cy="238" r="6" fill="#262A38" />
+    <div class="bar">
+        <button class="bar-btn">restart</button>
+        <button class="bar-btn">how to play</button>
+        <button class="bar-btn">about</button>
+    </div>
+    <div class="container">
+        <div class="left">
+            <svg id="gallow-img" width="437" height="578" viewBox="0 0 437 578" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="gallow">
+                    <g id="wood">
+                        <rect x="112.644" width="32.191" height="611.629" transform="rotate(22.4578 112.644 0)"
+                            fill="#838D9F" />
+                        <rect x="76.2213" y="0.777893" width="389.773" height="43.8968"
+                            transform="rotate(22.4578 76.2213 0.777893)" fill="#838D9F" />
+                        <rect x="336.112" y="143" width="11.7058" height="95.1098" fill="#838D9F" />
+                        <rect x="214.759" y="73.8755" width="33.6542" height="160.955"
+                            transform="rotate(67.4578 214.759 73.8755)" fill="#838D9F" />
+                    </g>
+                    <g id="guy">
+                        <circle class="body-part" id="head" cx="342.5" cy="237.5" r="21.5" />
+                        <rect class="body-part" id="body" x="318" y="271" width="49" height="81" rx="5" />
+                        <rect class="body-part" id="left-leg" x="318" y="358" width="21" height="112" rx="5" />
+                        <rect class="body-part" id="right-leg" x="346" y="358" width="21" height="112" rx="5" />
+                        <path class="body-part" id="right-hand"
+                            d="M374 290.646C374 286.285 379.939 284.992 381.752 288.958V288.958C381.917 289.317 382.027 289.699 382.082 290.09L394.214 377.815C394.629 380.82 392.295 383.5 389.261 383.5H379C376.239 383.5 374 381.261 374 378.5V290.646Z" />
+                        <path class="body-part" id="left-hand"
+                            d="M311 290.646C311 286.285 305.061 284.992 303.248 288.958V288.958C303.083 289.317 302.973 289.699 302.918 290.09L290.786 377.815C290.371 380.82 292.705 383.5 295.739 383.5H306C308.761 383.5 311 381.261 311 378.5V290.646Z" />
+                        <rect id="neck" x="324" y="261" width="36" height="8" rx="4" fill="#838D9F" />
+                        <g id="eyes">
+                            <circle id="eye-left" cx="334" cy="238" r="6" fill="#262A38" />
+                            <circle id="eye-right" cx="352" cy="238" r="6" fill="#262A38" />
+                        </g>
+                    </g>
                 </g>
-            </g>
-        </g>
-    </svg>
+            </svg>
+        </div>
+
+        <div class="right">
+            <h1 class="word">_ _ _ _ _</h1>
+            <h1 class="hint">Press any button</h1>
+        </div>
+    </div>
 
 
     <script src="index.js"></script>
