@@ -110,3 +110,18 @@ body {
     right: 20px;
     color: rgb(102, 104, 130);
 }
+
+#guy {
+    transform-box: fill-box;
+    transform-origin: top;
+    animation: 1s ease-in-out infinite alternate hang;
+}
+
+@keyframes hang {
+    from {
+        transform: rotateZ(-2deg);
+    }
+    to {
+        transform: rotateZ(2deg);
+    }
+}
