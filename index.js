@@ -78,5 +78,6 @@ function showMessage(text, mood) {
 function hideMessage() {
     let message = document.querySelector('.message')
     message.querySelector('h1').textContent = ''
-    message.classList.remove('message-active')
+    message.classList.remove('message-good')
+    message.classList.remove('message-bad')
 }
