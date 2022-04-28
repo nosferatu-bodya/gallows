@@ -60,6 +60,10 @@ body {
     fill: #2A3141;
 }
 
+.body-part-dead {
+    fill: red;
+}
+
 
 
 .word {
