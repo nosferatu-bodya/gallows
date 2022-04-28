@@ -1,20 +1,23 @@
 
 import words from './words.js'
 
+let word = getRandomWord()
+let curWord = Array(word.length).fill('_')
+
+updateWord()
+
 function getRandomWord () {
     return words[Math.floor(Math.random() * words.length)]
 }
 
-function getMaxLenght () {
-    let max = words[0].length
-    for(let w of words){
-        w.length > max ? max = w.length : max = max
+function updateWord () {
+    let strCurWord = ''
+    for(let i = 0; i < curWord.length; i++){
+        if(i === curWord.length - 1){
+            strCurWord += curWord[i]
+        } else {
+            strCurWord += curWord[i] + ' '
+        }
     }
-    return max
+    document.querySelector(".word").textContent = strCurWord
 }
-
-console.log(getMaxLenght())
-
-// console.log(getRandomWord())
-// console.log(getRandomWord())
-// console.log(getRandomWord())
