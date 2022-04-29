@@ -114,7 +114,7 @@ body {
 #guy {
     transform-box: fill-box;
     transform-origin: top;
-    animation: 3s cubic-bezier(0.54,-0.03, 0.59, 0.99) infinite hang;
+    animation: 3s cubic-bezier(0.57, 0.16, 0.59, 0.87) infinite hang;
 }
 
 @keyframes hang {
