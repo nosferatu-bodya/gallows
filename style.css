@@ -114,14 +114,17 @@ body {
 #guy {
     transform-box: fill-box;
     transform-origin: top;
-    animation: 1s ease-in-out infinite alternate hang;
+    animation: 3s cubic-bezier(0.54,-0.03, 0.59, 0.99) infinite hang;
 }
 
 @keyframes hang {
-    from {
+    0% {
         transform: rotateZ(-2deg);
     }
-    to {
+    50% {
         transform: rotateZ(2deg);
+    }
+    100% {
+        transform: rotateZ(-2deg);
     }
 }
