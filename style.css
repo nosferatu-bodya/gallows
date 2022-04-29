@@ -117,6 +117,10 @@ body {
     animation: 3s cubic-bezier(0.57, 0.16, 0.59, 0.87) infinite hang;
 }
 
+#shadow {
+    animation: 3s cubic-bezier(0.57, 0.16, 0.59, 0.87) infinite shadow-move;
+}
+
 @keyframes hang {
     0% {
         transform: rotateZ(-2deg);
@@ -126,5 +130,17 @@ body {
     }
     100% {
         transform: rotateZ(-2deg);
+    }
+}
+
+@keyframes shadow-move {
+    0% {
+        transform: translateX(5px)
+    }
+    50% {
+        transform: translateX(-5px)
+    }
+    100% {
+        transform: translateX(5px)
     }
 }
