@@ -78,6 +78,7 @@ body {
 
 .message {
     backdrop-filter: none;
+    background-color: rgba(36, 36, 46, 0.436);
     position: absolute;
     top: 0;
     left: 0;
@@ -89,19 +90,21 @@ body {
 }
 
 .message-good {
+    text-align: center;
     backdrop-filter: blur(10px);
     display: flex;
     color: #76ff76;
-    font-size: 4rem;
-    text-shadow: 0 0 20px #76ff76;
+    font-size: 3rem;
+    text-shadow: 0 0 10px #76ff76;
 }
 
 .message-bad {
+    text-align: center;
     backdrop-filter: blur(10px);
     display: flex;
     color: #ff2c76;
-    font-size: 4rem;
-    text-shadow: 0 0 20px #ff2c76;
+    font-size: 3rem;
+    text-shadow: 0 0 10px #ff2c76;
 }
 
 .my-name {
@@ -109,6 +112,41 @@ body {
     bottom: 20px;
     right: 20px;
     color: rgb(102, 104, 130);
+}
+
+.text-field {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 4rem;
+    font-weight: bold;
+    background-color: rgba(26, 27, 38, 0.395);
+    padding: 0 20px;
+
+    overflow-x: auto;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #16151f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #403c5f;
+    border-radius: 9999px;
+}
+
+.good-letter {
+    color: rgb(116, 255, 88);
+}
+
+.bad-letter {
+    color: rgb(255, 34, 89);
 }
 
 #guy {

@@ -5,45 +5,70 @@ import letters from './letters.js'
 let word = getRandomWord()
 let curWord = Array(word.length).fill('_')
 let mistakes = 0
+let playing = false
 
 curWord[0] = word[0]
-curWord[curWord.length- 1] = word[word.length - 1]
+curWord[curWord.length - 1] = word[word.length - 1]
 
 updateWord()
 
+console.log(word)
+
+playing = true
+
 document.addEventListener('keypress', (e) => handleKeyPress(e))
 
-function handleKeyPress (e) {
-    if(letters.includes(e.key)){
-        if(word.includes(e.key)){
-            for(let i = 0; i < word.length; i++){
-                if(word[i] == e.key){
+function handleKeyPress(e) {
+    if (playing && letters.includes(e.key)) {
+        if (word.includes(e.key)) {
+            addToTextField(e.key, 'good')
+            for (let i = 0; i < word.length; i++) {
+                if (word[i] == e.key) {
                     curWord[i] = e.key
                 }
             }
             updateWord()
-            showMessage('you got it!', 'good')
+            if(checkWinner()){
+                playing = false
+                showMessage('YOU WON!\nThe word was:\n' + word, 'good')
+            }
         } else {
-            mistakes++
+            addToTextField(e.key, 'bad')
+            mistakes += 1
             if(mistakes >= 6) {
+                playing = false
                 updateBody()
-                console.log('death')
+                showMessage('YOU LOST :(\nThe word was:\n' + word, 'bad')
             } else {
                 updateBody()
             }
-            showMessage('wrong!', 'bad')
         }
     }
 }
 
-function getRandomWord () {
+function checkWinner () {
+    if(!curWord.includes('_')) {
+        return true
+    }
+    return false
+}
+
+function addToTextField(letter, mood) {
+    let textField = document.querySelector('.text-field')
+    let letterElem = document.createElement('span')
+    letterElem.textContent = letter
+    letterElem.classList.add(mood + '-letter')
+    textField.appendChild(letterElem)
+}
+
+function getRandomWord() {
     return words[Math.floor(Math.random() * words.length)]
 }
 
-function updateWord () {
+function updateWord() {
     let strCurWord = ''
-    for(let i = 0; i < curWord.length; i++){
-        if(i === curWord.length - 1){
+    for (let i = 0; i < curWord.length; i++) {
+        if (i === curWord.length - 1) {
             strCurWord += curWord[i]
         } else {
             strCurWord += curWord[i] + ' '
@@ -52,9 +77,9 @@ function updateWord () {
     document.querySelector(".word").textContent = strCurWord
 }
 
-function updateBody () {
+function updateBody() {
     let bodyParts = document.querySelectorAll('.body-part')
-    for(let i = 0; i < mistakes; i++){
+    for (let i = 0; i < mistakes; i++) {
         bodyParts[i].classList.add('body-part-dead')
     }
 }
@@ -62,7 +87,7 @@ function updateBody () {
 function showMessage(text, mood) {
     let message = document.querySelector('.message')
     message.querySelector('h1').textContent = text
-    if(mood === 'good') {
+    if (mood === 'good') {
         message.classList.remove('message-bad')
         message.classList.add('message-good')
     } else if (mood === 'bad') {
@@ -71,8 +96,6 @@ function showMessage(text, mood) {
     } else {
         throw new Error('incorrect mood. Can accept only -bad or -good')
     }
-
-    setTimeout(hideMessage, 350)
 }
 
 function hideMessage() {
