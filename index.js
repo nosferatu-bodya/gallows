@@ -18,6 +18,8 @@ playing = true
 
 document.addEventListener('keypress', (e) => handleKeyPress(e))
 
+document.querySelector('.restart-btn').addEventListener('click', () => restart())
+
 function handleKeyPress(e) {
     if (playing && letters.includes(e.key)) {
         if (word.includes(e.key)) {
@@ -28,14 +30,14 @@ function handleKeyPress(e) {
                 }
             }
             updateWord()
-            if(checkWinner()){
+            if (checkWinner()) {
                 playing = false
                 showMessage('YOU WON!\nThe word was:\n' + word, 'good')
             }
         } else {
             addToTextField(e.key, 'bad')
             mistakes += 1
-            if(mistakes >= 6) {
+            if (mistakes >= 6) {
                 playing = false
                 updateBody()
                 showMessage('YOU LOST :(\nThe word was:\n' + word, 'bad')
@@ -46,8 +48,8 @@ function handleKeyPress(e) {
     }
 }
 
-function checkWinner () {
-    if(!curWord.includes('_')) {
+function checkWinner() {
+    if (!curWord.includes('_')) {
         return true
     }
     return false
@@ -84,6 +86,13 @@ function updateBody() {
     }
 }
 
+function clearBody () {
+    let bodyParts = document.querySelectorAll('.body-part')
+    for (let i = 0; i < 6; i++) {
+        bodyParts[i].classList.remove('body-part-dead')
+    }
+}
+
 function showMessage(text, mood) {
     let message = document.querySelector('.message')
     message.querySelector('h1').textContent = text
@@ -103,4 +112,17 @@ function hideMessage() {
     message.querySelector('h1').textContent = ''
     message.classList.remove('message-good')
     message.classList.remove('message-bad')
+}
+
+function restart() {
+    mistakes = 0
+    clearBody()
+    word = getRandomWord()
+    curWord = Array(word.length).fill('_')
+    curWord[0] = word[0]
+    curWord[curWord.length - 1] = word[word.length - 1]
+    updateWord()
+    document.querySelector('.text-field').innerHTML = ''
+    playing = true
+    hideMessage()
 }
